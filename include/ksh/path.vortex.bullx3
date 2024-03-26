@@ -1,0 +1,3 @@
+export VORTEXINSTALL=/home/mf/dp/marp/verolive/vortex/vortex-olive
+export PYTHONPATH=$VORTEXINSTALL/src:$VORTEXINSTALL/site:$VORTEXINSTALL/project
+PATH=$VORTEXINSTALL/bin:$PATH

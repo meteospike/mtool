@@ -1,0 +1,9 @@
+if [ -d "$TMPDIR" ]; then
+  cd $HOME/tmp
+  echo \rm -rf $TMPDIR
+fi
+
+if [ -d "$TMP_LOC" ]; then
+  cd $HOME/tmp
+  echo \rm -rf $TMP_LOC
+fi

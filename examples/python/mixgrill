@@ -1,0 +1,27 @@
+
+#MTOOL autolog
+#MTOOL set jobname=foo
+#MTOOL set proftag=short
+
+#MTOOL common language=ksh
+
+echo This is multilang python MTool script
+
+#MTOOL common language=python
+
+#MTOOL set bangline=/usr/local/apps/python3/3.8.8-01/bin/python3_-u
+
+print(This is multilang python MTool script")
+
+#------------------------------------------------------------------------------
+#MTOOL step id=first language=ksh
+#------------------------------------------------------------------------------
+
+echo Here is the domain of raw [this:language]
+
+#------------------------------------------------------------------------------
+#MTOOL step id=second language=python
+#------------------------------------------------------------------------------
+
+print("Welcome in the delightful [this:language] part")
+

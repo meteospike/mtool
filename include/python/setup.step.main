@@ -1,0 +1,7 @@
+#MTOOL include files=arch.lfitools.[this:target]
+#MTOOL include files=arch.epygram.[this:target]
+#MTOOL include files=setup.scriptprofile.[this:target]
+
+if e.VORTEX_SYSTEM_TRACE in ('1', 'on', 'yes'):
+    sh.trace = True
+

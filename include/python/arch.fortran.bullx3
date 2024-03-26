@@ -1,0 +1,22 @@
+e.update(
+    OMP_STACKSIZE               = '4G'
+    KMP_BLOCKTIME               = '12'
+    OMP_WAIT_POLICY             = 'ACTIVE'
+    TBB_MALLOC_USE_HUGE_PAGES   = '1'
+    MKL_CBWR                    = 'AUTO,STRICT'
+    MKL_DEBUG_CPU_TYPE          = '5'
+    MKL_NUM_THREADS             = '1'
+    FORT_BLOCKSIZE              = '1048576'
+    FORT_BUFFERED               = 'true'
+    MALLOC_MMAP_MAX_            = '0'
+    MALLOC_TRIM_THRESHOLD_      = '-1'
+)
+
+try:
+    e.OMP_NUM_THREADS = [this:submit_openmp]
+except:
+    pass
+
+if ( e.AUTO_PROFILE_OPENMP == '' or e.AUTO_PROFILE_OPENMP is None ):
+    e.OMP_NUM_THREADS = 1
+

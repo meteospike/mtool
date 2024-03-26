@@ -1,0 +1,42 @@
+
+#MTOOL setconf files=targets.[this:host]
+
+#MTOOL autolog
+#MTOOL autoclean
+#MTOOL set jobname=foo
+#MTOOL set jobtag=[this:jobname]
+#MTOOL set bangline=/usr/local/apps/python3/3.8.8-01/bin/python3_-u
+
+#MTOOL include files=vortex.util.[this:target]
+
+#------------------------------------------------------------------------------
+#MTOOL common id=un join=compute
+#------------------------------------------------------------------------------
+
+print("Cool job...")
+
+#------------------------------------------------------------------------------
+#MTOOL configure num=2
+
+print("The answer is two ?")
+
+#------------------------------------------------------------------------------
+#MTOOL step id=fetch target=[this:frontend]
+#------------------------------------------------------------------------------
+
+print("Data for ever...")
+idnext = "[next:id]"
+print("The next step id =", idnext)
+
+#------------------------------------------------------------------------------
+#MTOOL step id=compute target=[this:frontend]
+#------------------------------------------------------------------------------
+
+print("Easy computing!")
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+print("That's All Folks!!!")
+

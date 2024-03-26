@@ -1,0 +1,7 @@
+if e.VORTEX_CPROFILE in ('1', 'on', 'yes'):
+    pr.disable()
+    ps = pstats.Stats(pr).sort_stats('cumulative')
+    ps.dump_stats(sh.path.join(e.MTOOL_STEP_DEPOT,
+                               'cprofile_{}_{}.prof'.format("[this:jobname]",
+                                                            e.MTOOL_STEP_IDNUM)))
+

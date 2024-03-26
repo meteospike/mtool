@@ -1,0 +1,27 @@
+import sys, traceback
+sys.path.append('[this:public]/vortex/src')
+sys.path.append('[this:public]/vortex/site')
+sys.stderr = sys.stdout
+
+import vortex
+
+t = vortex.ticket()
+t.warning()
+
+sh = t.context.system
+e = t.context.env
+
+print(t.line)
+
+print(t.prompt, 'Session Ticket t  =', t)
+print(t.prompt, 'Session System sh =', sh)
+print(t.prompt, 'Session Env    e  =', e)
+
+sh.trace = True
+
+print(t.line)
+
+sh.cd(e.TMPDIR)
+sh.pwd(output=False)
+
+print(t.line)

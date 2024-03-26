@@ -1,0 +1,41 @@
+
+#MTOOL setconf files=targets.[this:host]
+#MTOOL autolog
+#MTOOL set data=[this:frontend]
+#MTOOL set run=[this:cpunodes]
+
+set -ax
+cd $TMPDIR
+
+#------------------------------------------------------------------------------
+#MTOOL include files=path.basic.[this:target],arch.fortran.[this:target]
+
+#------------------------------------------------------------------------------
+#MTOOL step target=[this:data]
+#------------------------------------------------------------------------------
+
+echo fetch data env
+env
+which cp
+which tar
+
+#------------------------------------------------------------------------------
+#MTOOL step target=[this:run]
+#------------------------------------------------------------------------------
+
+echo run data env
+env | fgrep SLURM
+echo
+
+echo run data mtool
+env | fgrep MTOOL
+echo
+
+which cp
+which tar
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+#MTOOL include files=sample.void

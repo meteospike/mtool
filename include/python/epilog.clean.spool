@@ -1,0 +1,3 @@
+if ( sh.path.isdir(e.MTOOL_STEP_SPOOL) ):
+  sh.cd(e.HOME)
+  sh.rm(e.MTOOL_STEP_SPOOL)

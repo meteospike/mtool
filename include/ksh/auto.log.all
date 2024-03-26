@@ -1,0 +1,2 @@
+cd [this:depot]
+cat $([this:root]/bin/mtool_grip.pl *.done *.out) > $MTOOL_STEP_LOGFILE

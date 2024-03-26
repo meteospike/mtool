@@ -1,0 +1,10 @@
+#SBATCH --verbose
+#SBATCH --job-name=[this:jobname]
+#SBATCH --time=02:00:00
+#SBATCH --mem=3072
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=transfert
+#SBATCH --export=NONE
+#SBATCH --no-requeue

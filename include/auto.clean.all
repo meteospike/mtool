@@ -1,0 +1,2 @@
+#MTOOL clean path=[this:depotroot] id=depot old=5
+#MTOOL clean path=[this:spoolroot] id=spool old=3

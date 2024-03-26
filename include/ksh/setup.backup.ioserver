@@ -1,0 +1,16 @@
+
+if [ -d "$LFIPATH" ] and [ -f "io_poll.todo" ]; then
+  mtool_banner.pl --string="IO_POLL"
+  time perl $LFIPATH/io_poll --prefix ICMSH
+  time perl $LFIPATH/io_poll --prefix PF
+  if [ -f "io_poll.todo.GRIBPF" ]; then
+    time perl $LFIPATH/io_poll --prefix GRIBPF
+  fi
+  if [ "$SWAPP_IOSERVER_PACK" == "on" ]; then
+    for file in ICMSH* PF*; do
+      time $LFIPATH/lfi_move --intent=in $file $file.tmp
+      time $LFIPATH/lfi_copy --intent=in --pack $file.tmp $file
+    done
+  fi
+fi
+

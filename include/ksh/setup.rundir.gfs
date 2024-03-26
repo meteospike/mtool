@@ -1,0 +1,9 @@
+
+if [ "$MTOOL_RUNDIR" = "" ]; then
+  MTOOL_RUNDIR=$MTOOL_STEP_SPOOL
+fi
+
+\cd $MTOOL_RUNDIR
+
+# Redundant in many cases (and harmfull for Lustre)
+# \ls -l

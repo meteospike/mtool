@@ -1,0 +1,37 @@
+
+#MTOOL setconf files=targets.[this:host]
+
+#MTOOL autolog
+#MTOOL set jobname=foo
+#MTOOL set bangline=/usr/local/apps/python3/3.8.8-01/bin/python3_-u
+
+#MTOOL set data=[this:frontend]
+#MTOOL set run=[this:cpunodes]
+
+#MTOOL include files=path.basic.[this:target],arch.fortran.[this:target]
+
+#MTOOL include files=vortex.util.[this:target]
+
+#------------------------------------------------------------------------------
+#MTOOL step target=[this:data]
+#------------------------------------------------------------------------------
+
+print("This is the data fetch step")
+print(os.environ)
+os.system('which cp')
+os.system('which tar')
+
+#------------------------------------------------------------------------------
+#MTOOL step target=[this:run] proftag=short
+#------------------------------------------------------------------------------
+
+print("This is the run step")
+print(os.environ)
+os.system('which cp')
+os.system('which tar')
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+#MTOOL include files=sample.void
+

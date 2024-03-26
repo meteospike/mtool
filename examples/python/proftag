@@ -1,0 +1,57 @@
+
+#MTOOL setconf files=targets.[this:host]
+
+#MTOOL autolog
+#MTOOL set jobname=prof
+#MTOOL set bangline=/usr/local/apps/python3/3.8.8-01/bin/python3_-u
+
+#MTOOL include files=vortex.util.[this:target]
+
+#------------------------------------------------------------------------------
+#MTOOL profile target=[this:target] tag=short
+#PBS -N [this:jobname]a
+#PBS -S /usr/bin/ksh
+#PBS -j o
+#PBS -l elapstim_req="100,90"
+#PBS -l memsz_job=750mb
+#PBS -q nocpu
+#MTOOL end
+
+#------------------------------------------------------------------------------
+#MTOOL profile target=[this:target] tag=cool
+#PBS -N [this:jobname]b
+#PBS -S /usr/bin/ksh
+#PBS -j o
+#PBS -l elapstim_req="90,80"
+#PBS -l memsz_job=750mb
+#PBS -q nocpu
+#MTOOL end
+
+#MTOOL common
+
+import os
+
+print("This is the most simple python MTool script")
+
+#------------------------------------------------------------------------------
+#MTOOL step id=first
+#------------------------------------------------------------------------------
+
+os.environ['NUM'] = "2"
+
+#MTOOL export NUM=22
+
+print("Cool job", os.environ['NUM'])
+
+#------------------------------------------------------------------------------
+#MTOOL step id=second
+#------------------------------------------------------------------------------
+
+print("Not that hard either...")
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+print("That's All Folks!!!")
+

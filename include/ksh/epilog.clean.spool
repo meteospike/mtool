@@ -1,0 +1,4 @@
+if [ -d "$MTOOL_STEP_SPOOL" ]; then
+  \cd $HOME/tmp
+  \rm -rf $MTOOL_STEP_SPOOL
+fi

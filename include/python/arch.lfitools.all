@@ -1,0 +1,21 @@
+sh.subtitle('LFI tools')
+
+if 'LFICYCLE' not in e:
+  e.LFICYCLE = 'default'
+
+# Special case when the lfitools binaries/scripts are in the working directory
+if e.LFICYCLE == 'local':
+  if ( e.MTOOL_RUNDIR == '' or e.MTOOL_RUNDIR == None ):
+    e.LFIPATH = e.MTOOL_STEP_SPOOL
+  else:
+    e.LFIPATH = e.MTOOL_RUNDIR
+  e.LFIPATH += '/usualtools'
+
+# Usual way...
+if 'LFIPATH' not in e:
+  e.LFIPATH = '[this:public]/lfi-tools/' + e.LFICYCLE
+
+from vortex.tools import lfi
+shlfi = vortex.proxy.addon(kind='lfi', shell=sh)
+shio  = vortex.proxy.addon(kind='iopoll', shell=sh)
+

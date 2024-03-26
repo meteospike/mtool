@@ -1,0 +1,22 @@
+sh.subtitle('Epygram setup')
+
+if 'EPYGRAMVERSION' not in e:
+    e.EPYGRAMVERSION = 'default'
+
+if 'EPYGRAMPATH' not in e:
+    e.EPYGRAMPATH = ('[this:public]/epygram-' + e.EPYGRAMVERSION +
+                     '_py{0.major:d}.{0.minor:d}'.format(sys.version_info))
+
+sys.path.insert(0, e.EPYGRAMPATH + '/eccodes_python')
+# Python3 only
+if sys.version_info.major == 3:
+    e.ECCODES_DIR = e.EPYGRAMPATH + '/eccodes_dir'
+
+# Epygram itself
+sys.path.insert(0, e.EPYGRAMPATH + '/site')
+sys.path.insert(0, e.EPYGRAMPATH)
+e.MPLBACKEND = 'Agg'
+
+if e.VORTEX_PROMISES in ('1', 'on', 'yes') or e.MTOOL_STEP_ID not in ('compute'):
+    import common.util.usepygram
+

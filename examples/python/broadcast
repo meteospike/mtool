@@ -1,0 +1,36 @@
+
+#MTOOL setconf files=targets.[this:host]
+
+#MTOOL autolog
+#MTOOL autoclean
+#MTOOL set jobname=foo
+
+#MTOOL set bangline=/usr/local/apps/python3/3.8.8-01/bin/python3_-u
+
+#MTOOL include files=vortex.util.[this:target]
+
+#------------------------------------------------------------------------------
+#MTOOL step id=compute
+#------------------------------------------------------------------------------
+
+print("Furious Computing...")
+num1 = 123
+num2 = num1 + 2
+
+#------------------------------------------------------------------------------
+#MTOOL broadcast id=[next:id] vars=num1,num2
+
+#------------------------------------------------------------------------------
+#MTOOL step id=display
+#------------------------------------------------------------------------------
+
+num1 = os.environ['NUM1']
+num2 = os.environ['NUM2']
+print(num1, '+ 2 =', num2, "according to [prev:id]")
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+print("That's All Folks!!!")
+

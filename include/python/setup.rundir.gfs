@@ -1,0 +1,12 @@
+sh.subtitle("Jump into the working directory")
+
+if ( e.MTOOL_RUNDIR == '' or e.MTOOL_RUNDIR == None ):
+    e.MTOOL_RUNDIR = e.MTOOL_STEP_SPOOL
+
+sh.cd(e.MTOOL_RUNDIR)
+
+# Redundant in many cases
+# sh.dir(output=False)
+
+# print(t.line)
+

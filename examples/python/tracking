@@ -1,0 +1,57 @@
+
+#MTOOL setconf files=targets.[this:host]
+
+#MTOOL autolog
+#MTOOL autoclean
+#MTOOL set jobname=track
+#MTOOL set bangline=/usr/local/apps/python3/3.8.8-01/bin/python3_-u
+
+#MTOOL include files=vortex.util.[this:target]
+
+#------------------------------------------------------------------------------
+#MTOOL step id=compute
+#------------------------------------------------------------------------------
+
+os.chdir(os.environ['MTOOL_STEP_SPOOL'])
+os.system('ls -l')
+
+#------------------------------------------------------------------------------
+#MTOOL track tag=fun type=env,fs
+
+os.environ['NUM'] = '22'
+
+os.mkdir('subdir')
+
+with open('subdir/youplaboum', 'w') as fdemo:
+    fdemo.write('hello tracking')
+    fdemo.close()
+
+print os.getcwd()
+
+os.system('ls -lR')
+
+#------------------------------------------------------------------------------
+#MTOOL broadcast id=[next:id] track=fun type=env,fs
+
+#------------------------------------------------------------------------------
+#MTOOL step id=display
+#------------------------------------------------------------------------------
+
+os.system('ls -s ' + os.environ['MTOOL_STEP_DEPOT'])
+
+os.chdir(os.environ['TMP_LOC'])
+print 'NUM =', os.environ['NUM'], 'according to [prev:id]'
+print 'Some files may have changed...'
+
+#------------------------------------------------------------------------------
+#MTOOL import tag=[this:id] depot=[this:depot] type=fs 
+
+print os.getcwd()
+os.system('ls -lR')
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+print "That's All Folks!!!"
+

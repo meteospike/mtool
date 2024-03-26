@@ -1,0 +1,9 @@
+#SBATCH --verbose
+#SBATCH --job-name=[this:jobname]
+#SBATCH --time=00:30:00
+#SBATCH --mem=4096
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --export=NONE
+#SBATCH --partition=normal256

@@ -1,0 +1,12 @@
+#MTOOL clean path=[this:depotroot]                  id=depot    old=5  max=500   rmmaxtime=60  maxlockage=500   verbose=off startuprandom=5
+#MTOOL clean path=[this:spoolroot]                  id=spool    old=3  max=50    rmmaxtime=60  maxlockage=300   verbose=off
+#MTOOL clean path=[this:abortroot]                  id=abort    old=4  max=50    rmmaxtime=60  maxlockage=300   verbose=off
+#MTOOL clean path=[this:cacheroot]/xp/????          id=olive    old=6  max=50    rmmaxtime=500 maxlockage=1800
+#MTOOL clean path=[this:cacheroot]/vortex/*/*/????  id=vortex   old=6  max=50    rmmaxtime=500 maxlockage=1800
+#MTOOL clean path=[this:cacheroot]/vortex/*/*/*@*   id=vortex2  old=6  max=50    rmmaxtime=500 maxlockage=1800
+#MTOOL clean path=[this:cacheroot]/promise/*/*/???? id=promise  old=5  max=50    rmmaxtime=60  maxlockage=1800
+#MTOOL clean path=[this:cacheroot]/promise/*/*/*@*  id=promise2 old=5  max=50    rmmaxtime=60  maxlockage=1800
+#MTOOL clean path=[this:cacheroot]/ftspool          id=ftspool  old=4  max=5000  crude=on lfs=on
+#MTOOL clean path=[this:cacheroot]/oper             id=oper     old=9  max=20000 crude=on lfs=on
+#MTOOL clean path=[this:cacheroot]/gco              id=gco      old=30 max=1000  crude=on lfs=on
+#MTOOL clean path=[this:cacheroot]/uget             id=uget     old=30 max=1000  crude=on lfs=on

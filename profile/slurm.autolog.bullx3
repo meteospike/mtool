@@ -1,0 +1,9 @@
+#SBATCH --verbose
+#SBATCH --job-name=mt[this:count]
+#SBATCH --time=00:30:00
+#SBATCH --mem=2048
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=login
+#SBATCH --export=NONE

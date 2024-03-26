@@ -1,0 +1,14 @@
+#MTOOL include files=arch.lfitools.[this:target]
+#MTOOL include files=arch.epygram.[this:target]
+#MTOOL include files=setup.scriptprofile.[this:target]
+
+if e.VORTEX_SYSTEM_TRACE in ('1', 'on', 'yes'):
+    sh.trace = True
+
+# sh.spawn([
+#    'lfs', 'setstripe', '--stripe-size=1M',
+#    '-E', '8M', '--stripe-count=1',
+#    '-E', '32M', '--stripe-count=2',
+#    '-E', 'eof', '--stripe-count=4', e.MTOOL_RUNDIR],
+#    output=False)
+

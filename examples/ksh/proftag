@@ -1,0 +1,55 @@
+
+#MTOOL setconf files=targets.[this:host]
+#MTOOL autolog
+#MTOOL set jobname=foo
+
+#------------------------------------------------------------------------------
+#MTOOL profile target=[this:target] tag=short
+#SBATCH --verbose
+#SBATCH --job-name=[this:jobname]
+#SBATCH --time=00:11:11
+#SBATCH --mem=1024
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=transfert
+#SBATCH --share
+#SBATCH --export=NONE
+#MTOOL end
+
+#------------------------------------------------------------------------------
+#MTOOL profile target=[this:target] tag=cool
+#SBATCH --verbose
+#SBATCH --job-name=[this:jobname]
+#SBATCH --time=00:12:12
+#SBATCH --mem=1024
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=transfert
+#SBATCH --share
+#SBATCH --export=NONE
+#MTOOL end
+
+set -ax
+cd $TMPDIR
+
+#------------------------------------------------------------------------------
+#MTOOL step id=j1 tag=short
+#------------------------------------------------------------------------------
+
+#MTOOL export FOO=22
+
+echo cool job $FOO
+
+#------------------------------------------------------------------------------
+#MTOOL step id=j2 proftag=cool
+#------------------------------------------------------------------------------
+
+echo not too hard neither
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+echo this is the end

@@ -1,0 +1,16 @@
+SWAPP_DEBUG_THREADS=off
+
+SWAPP_MPI_LAUNCH="[this:public]/mpi-tools/mpiauto/mpiauto"
+SWAPP_MPI_DEFAULTS="--wrap --wrap-stdeo --wrap-stdeo-pack --verbose --init-timeout-restart 1"
+SWAPP_MPI_OPTIONS="nn,nnp"
+SWAPP_MPI_WRAPPER=off
+
+SWAPP_SUBMIT_NODES=[this:submit_nodes]
+SWAPP_SUBMIT_TASKS=[this:submit_tasks]
+
+SWAPP_IOSERVER_NODES=0
+SWAPP_IOSERVER_TASKS=16
+SWAPP_IOSERVER_OPENMP=8
+SWAPP_IOSERVER_PACK=off
+
+MPIAUTOCONFIG=mpiauto.TIME.conf

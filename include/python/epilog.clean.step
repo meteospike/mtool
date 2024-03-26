@@ -1,0 +1,13 @@
+if ( e.TMPDIR != None and sh.path.isdir(e.TMPDIR) ):
+    sh.cd(e.HOME)
+    try:
+        sh.rm(e.TMPDIR)
+    except OSError:
+        pass
+ 
+if ( e.TMP_LOC != None and sh.path.isdir(e.TMP_LOC) ):
+    sh.cd(e.HOME)
+    try:
+        sh.rm(e.TMP_LOC)
+    except OSError:
+        pass

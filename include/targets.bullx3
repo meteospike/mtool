@@ -1,0 +1,2 @@
+#MTOOL set frontend=[this:host][this:suffixfe]
+#MTOOL set cpunodes=[this:host][this:suffixcn]

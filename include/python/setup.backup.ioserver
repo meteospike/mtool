@@ -1,0 +1,22 @@
+
+if sh.path.exists('io_poll.todo'):
+
+    todoradical = 'io_poll.todo.'
+    prefixes = [f[len(todoradical):] for f in sh.glob(todoradical + '*')]
+    if not len(prefixes):
+        # With old toolboxes, io_poll.todo.* files are not generated
+        prefixes = ('ICMSH', 'PF')
+    sh.title('IO poll on prefixes: {:s}'.format(','.join(prefixes)))
+
+    shio = vortex.proxy.addon(kind='iopoll', shell=sh)
+    for prefix in prefixes:
+        rc = sh.io_poll(prefix)
+        print(rc)
+        print(rc.result)
+    if e.true('VORTEX_IOSERVER_PACK'):
+        for lfifile in sh.ls('ICMSH*', 'PF*', output=True):
+            sh.lfi_mv(lfifile, lfifile + '.tmp', intent='in')
+            sh.lfi_cp(lfifile + '.tmp', lfifile, intent='in', pack=True)
+    sh.header('Post-IO Poll directory listing')
+    sh.ls(output=False)
+

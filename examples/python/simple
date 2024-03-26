@@ -1,0 +1,32 @@
+#MTOOL setconf files=targets.[this:host]
+
+#MTOOL autolog
+#MTOOL set jobname=foo
+#MTOOL set bangline=/usr/local/apps/python3/3.8.8-01/bin/python3_-u
+
+#MTOOL include files=vortex.util.[this:target]
+
+print("This is the most simple python MTool script")
+
+#------------------------------------------------------------------------------
+#MTOOL step id=first
+#------------------------------------------------------------------------------
+
+os.environ['NUM'] = "2"
+
+#MTOOL export NUM=22
+
+print("Cool job", os.environ['NUM'])
+
+#------------------------------------------------------------------------------
+#MTOOL step id=second
+#------------------------------------------------------------------------------
+
+print("Not that hard either...")
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+print("That's All Folks!!!")
+

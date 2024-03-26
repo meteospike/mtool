@@ -1,0 +1,10 @@
+e.update(
+    VORTEX_SUBMIT_NODES=[this:submit_nodes],
+    VORTEX_SUBMIT_TASKS=[this:submit_tasks],
+    VORTEX_SUBMIT_OPENMP=[this:submit_openmp],
+    VORTEX_IOSERVER_TASKS=16,
+    VORTEX_IOSERVER_OPENMP=8,
+    VORTEX_IOSERVER_PACK=False,
+    MPIAUTOCONFIG='mpiauto.TIME.conf',
+)
+

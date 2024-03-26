@@ -1,0 +1,6 @@
+if e.VORTEX_CPROFILE in ('1', 'on', 'yes'):
+    from cProfile import Profile
+    import pstats
+    pr = Profile()
+    pr.enable()
+

@@ -1,0 +1,22 @@
+if [ "$LFICYCLE" = "" ]; then
+  export LFICYCLE=default
+fi
+
+if [ "$LFICYCLE" = "local" ]; then
+  if [ "$MTOOL_RUNDIR" = "" ]; then
+    export LFIPATH="${MTOOL_STEP_SPOOL}"
+  else
+    export LFIPATH="${MTOOL_RUNDIR}"
+  fi
+  # Use the default lfi_ftput
+  export LFIFTPUT=[this:public]/lfi-tools/common/ftput
+fi
+
+if [ "$LFIPATH" = "" ]; then
+  export LFIPATH=[this:public]/lfi-tools/$LFICYCLE
+fi
+
+if [ "$LFITOOLS" = "" ]; then
+  export LFITOOLS="$LFIPATH/LFITOOLS"
+fi
+

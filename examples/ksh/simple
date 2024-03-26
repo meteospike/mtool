@@ -1,0 +1,34 @@
+
+#MTOOL setconf files=targets.[this:host]
+#MTOOL autolog
+#MTOOL set jobname=foo
+set -ax
+
+#------------------------------------------------------------------------------
+#MTOOL step id=j1
+#------------------------------------------------------------------------------
+FOO=1
+#MTOOL export FOO=22
+
+echo cool job $FOO
+
+echo frontend = [this:frontend]
+echo cpunodes = [this:cpunodes]
+
+hostname
+
+#------------------------------------------------------------------------------
+#MTOOL step id=j2 target=[this:frontend]
+#------------------------------------------------------------------------------
+
+echo very few things to do
+
+hostname
+
+env | fgrep SLURM
+
+#------------------------------------------------------------------------------
+#MTOOL common
+#------------------------------------------------------------------------------
+
+echo this is the end

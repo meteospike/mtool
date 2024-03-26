@@ -1,0 +1,7 @@
+sh.cd('[this:depot]')
+realout = list()
+for fout in sh.spawn(sh.glob(':[this:root]/bin/mtool_grip.pl', '*.done'), output=True):
+    print('autolog: add', fout)
+    realout.extend(fout.split())
+sh.filecocoon(e.MTOOL_STEP_LOGFILE)
+sh.cat(*realout, output=e.MTOOL_STEP_LOGFILE, outmode='w')
